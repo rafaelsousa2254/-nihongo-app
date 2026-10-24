@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String           @id @default(uuid())
+  name               String           @unique
+  passwordHash       String
+  role               String           @default("user")
+  avatar             String?
+  level              Int              @default(1)
+  xp                 Int              @default(0)
+  coins              Int              @default(0)
+  streak             Int              @default(0)
+  lastStudyDate      DateTime?
+  totalStudyMinutes  Int              @default(0)
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  progress           UserProgress[]
+  achievements       UserAchievement[]
+  studySessions      StudySession[]
+  conversations      Conversation[]
+  leaderboardEntries LeaderboardEntry[]
+
+  @@index([name])
+  @@index([xp])
+}
+
+model UserProgress {
+  id             String      @id @default(uuid())
+  userId         String
+  contentType    String
+  contentId      String
+  level          Int         @default(0)
+  nextReview     DateTime
+  easeFactor     Float       @default(2.5)
+  interval       Int         @default(0)
+  repetitions    Int         @default(0)
+  correctCount   Int         @default(0)
+  incorrectCount Int         @default(0)
+  lastReviewedAt DateTime?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  user           User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, contentType, contentId])
+  @@index([userId])
+  @@index([nextReview])
+}
+
+model Achievement {
+  id          String           @id @default(uuid())
+  name        String
+  description String
+  icon        String
+  category    String
+  requirement Int
+  xpReward    Int
+  createdAt   DateTime         @default(now())
+
+  users       UserAchievement[]
+
+  @@index([category])
+}
+
+model UserAchievement {
+  id            String      @id @default(uuid())
+  userId        String
+  achievementId String
+  unlockedAt    DateTime    @default(now())
+
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+  @@index([userId])
+}
+
+model StudySession {
+  id            String      @id @default(uuid())
+  userId        String
+  startTime     DateTime
+  endTime       DateTime?
+  duration      Int         @default(0)
+  contentType   String
+  itemsStudied  Int         @default(0)
+  correctAnswers Int        @default(0)
+  xpEarned      Int         @default(0)
+
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([startTime])
+}
+
+model Conversation {
+  id        String               @id @default(uuid())
+  userId    String
+  mode      String
+  createdAt DateTime             @default(now())
+
+  user      User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages  ConversationMessage[]
+
+  @@index([userId])
+}
+
+model ConversationMessage {
+  id             String       @id @default(uuid())
+  conversationId String
+  role           String
+  content        String
+  createdAt      DateTime     @default(now())
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+}
+
+model LeaderboardEntry {
+  id        String   @id @default(uuid())
+  userId    String
+  weekStart DateTime
+  xpEarned  Int      @default(0)
+  rank      Int?
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, weekStart])
+  @@index([weekStart])
+  @@index([xpEarned])
+}

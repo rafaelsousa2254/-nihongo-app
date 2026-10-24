@@ -1,0 +1,131 @@
+export const APP_NAME = 'Nihongo Journey'
+
+export const XP_PER_CORRECT = 10
+export const XP_PER_LESSON = 50
+export const COINS_PER_CORRECT = 1
+export const COINS_PER_LESSON = 5
+export const MAX_STREAK_BONUS = 5
+
+export const ACHIEVEMENTS = [
+  {
+    id: 'first_hiragana',
+    name: 'Primeiro Hiragana',
+    description: 'Aprenda seu primeiro caractere hiragana',
+    icon: 'hiragana',
+    category: 'hiragana',
+    requirement: 1,
+    xpReward: 100,
+  },
+  {
+    id: 'first_10_kanji',
+    name: 'Primeiros 10 Kanji',
+    description: 'Aprenda 10 kanji',
+    icon: 'kanji',
+    category: 'kanji',
+    requirement: 10,
+    xpReward: 200,
+  },
+  {
+    id: 'streak_7',
+    name: 'Semana Perfeita',
+    description: 'Mantenha uma sequência de 7 dias',
+    icon: 'flame',
+    category: 'streak',
+    requirement: 7,
+    xpReward: 300,
+  },
+  {
+    id: 'streak_30',
+    name: 'Mestre da Disciplina',
+    description: 'Mantenha uma sequência de 30 dias',
+    icon: 'trophy',
+    category: 'streak',
+    requirement: 30,
+    xpReward: 1000,
+  },
+  {
+    id: 'level_5',
+    name: 'Nível 5',
+    description: 'Alcance o nível 5',
+    icon: 'star',
+    category: 'level',
+    requirement: 5,
+    xpReward: 250,
+  },
+  {
+    id: 'level_10',
+    name: 'Nível 10',
+    description: 'Alcance o nível 10',
+    icon: 'crown',
+    category: 'level',
+    requirement: 10,
+    xpReward: 500,
+  },
+  {
+    id: 'first_lesson',
+    name: 'Primeira Lição',
+    description: 'Complete sua primeira lição',
+    icon: 'book',
+    category: 'lessons',
+    requirement: 1,
+    xpReward: 50,
+  },
+  {
+    id: '10_lessons',
+    name: 'Estudante Dedicado',
+    description: 'Complete 10 lições',
+    icon: 'books',
+    category: 'lessons',
+    requirement: 10,
+    xpReward: 300,
+  },
+  {
+    id: 'first_vocabulary',
+    name: 'Vocabulário Inicial',
+    description: 'Aprenda 50 palavras de vocabulário',
+    icon: 'vocabulary',
+    category: 'vocabulary',
+    requirement: 50,
+    xpReward: 200,
+  },
+  {
+    id: 'first_grammar',
+    name: 'Gramática Básica',
+    description: 'Aprenda 5 padrões de gramática',
+    icon: 'grammar',
+    category: 'grammar',
+    requirement: 5,
+    xpReward: 150,
+  },
+  {
+    id: 'speed_demon',
+    name: 'Demônio da Velocidade',
+    description: 'Complete uma lição em menos de 2 minutos',
+    icon: 'bolt',
+    category: 'speed',
+    requirement: 1,
+    xpReward: 100,
+  },
+  {
+    id: 'perfect_score',
+    name: 'Pontuação Perfeita',
+    description: 'Acerte todas as perguntas em uma lição',
+    icon: 'medal',
+    category: 'accuracy',
+    requirement: 1,
+    xpReward: 150,
+  },
+]
+
+export const THEME_COLORS = {
+  primary: '#E84057',
+  secondary: '#4ECDC4',
+  accent: '#FFE66D',
+  background: '#FFFFFF',
+  surface: '#F7F7F7',
+  text: '#1A1A1A',
+  textSecondary: '#666666',
+  success: '#4CAF50',
+  warning: '#FFC107',
+  error: '#F44336',
+}
