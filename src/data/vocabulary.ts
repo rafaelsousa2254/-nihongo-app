@@ -2417,7 +2417,6 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== VIDA DIÁRIA - CASA =====
   {
     id: 'ie',
     word: '家',
@@ -2502,7 +2501,6 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== TRANSPORTE =====
   {
     id: 'densha',
     word: '電車',
@@ -2574,7 +2572,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== COMIDA E BEBIDA =====
+  
   {
     id: 'gohan',
     word: 'ご飯',
@@ -2754,7 +2752,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== ROUPAS E APARÊNCIA =====
+  
   {
     id: 'fuku',
     word: '服',
@@ -2885,7 +2883,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== TEMPO =====
+  
   {
     id: 'ima',
     word: '今',
@@ -2980,7 +2978,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== LOJA E COMPRAS =====
+  
   {
     id: 'mise',
     word: '店',
@@ -3065,7 +3063,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== TRABALHO E ESCOLA =====
+  
   {
     id: 'shigoto',
     word: '仕事',
@@ -3151,7 +3149,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== MÉDICO E SAÚDE =====
+  
   {
     id: 'kurui',
     word: '薬',
@@ -3201,7 +3199,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== TEMPO E CLIMA =====
+  
   {
     id: 'tenki',
     word: '天気',
@@ -3275,7 +3273,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== EXPRESSIONES COLLOQUIAIS =====
+  
   {
     id: 'maji',
     word: 'マジ',
@@ -3443,7 +3441,7 @@ export const vocabulary: VocabularyWord[] = [
     ],
   },
 
-  // ===== TRANSPORTES (mais frases) =====
+  
   {
     id: 'noru',
     word: '乗る',

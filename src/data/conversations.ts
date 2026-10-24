@@ -541,7 +541,6 @@ export const conversations: ConversationScenario[] = [
     ],
   },
 
-  // ===== CENÁRIO 8: CONVENIÊNCIA =====
   {
     id: 'convenience-store',
     title: 'Conveniência (コンビニ)',
@@ -649,7 +648,6 @@ export const conversations: ConversationScenario[] = [
     ],
   },
 
-  // ===== CENÁRIO 9: MÉDICO =====
   {
     id: 'doctor',
     title: 'Médico (病院)',
@@ -743,7 +741,7 @@ export const conversations: ConversationScenario[] = [
     ],
   },
 
-  // ===== CENÁRIO 10: TELEFONE =====
+  
   {
     id: 'phone',
     title: 'Telefone (電話)',
@@ -830,7 +828,7 @@ export const conversations: ConversationScenario[] = [
     ],
   },
 
-  // ===== CENÁRIO 11: PEDINDO SOCORRO =====
+  
   {
     id: 'help',
     title: 'Pedindo Socorro (助け)',
@@ -910,7 +908,7 @@ export const conversations: ConversationScenario[] = [
     ],
   },
 
-  // ===== CENÁRIO 12: FRASES DO DIA A DIA =====
+  
   {
     id: 'daily-expressions',
     title: 'Expressões do Dia a Dia (日常表現)',
@@ -1004,7 +1002,7 @@ export const conversations: ConversationScenario[] = [
     ],
   },
 
-  // ===== CENÁRIO 13: NEGOCIAÇÕES E PEDIDOS =====
+  
   {
     id: 'requests',
     title: 'Pedidos e Negociações (頼み事)',
@@ -1063,7 +1061,7 @@ export const conversations: ConversationScenario[] = [
     ],
   },
 
-  // ===== CENÁRIO 14: NO RESTAURANTE (FRASES EXTRAS) =====
+  
   {
     id: 'restaurant-advanced',
     title: 'Restaurante Avançado (レストラン上級)',
