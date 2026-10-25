@@ -7,26 +7,19 @@ async function main() {
   const adminName = process.env.ADMIN_NAME || 'admin'
   const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
 
-  const existing = await prisma.user.findUnique({
-    where: { name: adminName },
-  })
-
-  if (existing) {
-    console.log(`Admin user "${adminName}" already exists. Skipping.`)
-    return
-  }
-
   const passwordHash = await bcrypt.hash(adminPassword, 12)
 
-  await prisma.user.create({
-    data: {
+  await prisma.user.upsert({
+    where: { name: adminName },
+    update: { passwordHash, role: 'admin' },
+    create: {
       name: adminName,
       passwordHash,
       role: 'admin',
     },
   })
 
-  console.log(`Admin user "${adminName}" created successfully.`)
+  console.log(`Admin user "${adminName}" seeded with password successfully.`)
 }
 
 main()

@@ -184,7 +184,7 @@ export function generateDailyMissions(): Mission[] {
   categoryPriorities.sort((a, b) => b.priority - a.priority)
 
   const topCategories = categoryPriorities.slice(0, 3)
-  const existingHrefs = new Set(['/', '/hiragana', '/error-revenge', '/smart-exercises', '/grammar-fusion'])
+  const existingHrefs = new Set(['/', '/error-revenge', '/smart-exercises', '/grammar-fusion'])
 
   for (const { category, reason } of topCategories) {
     const config = ACTIVITY_CONFIG[category]

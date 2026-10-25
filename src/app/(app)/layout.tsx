@@ -6,26 +6,23 @@ import { useAppStore } from '@/store/useAppStore';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 
-function useAuthCheck() {
+function useAuthCheck(): boolean {
   const router = useRouter();
   const [isReady, setIsReady] = useState<boolean>(false);
   const isAuthenticated = useAppStore((s) => s.isAuthenticated);
+  const token = useAppStore((s) => s.token);
 
   useEffect(() => {
-    if (isAuthenticated) {
+    const storedToken = typeof window !== 'undefined' ? (localStorage.getItem('token') || token) : null;
+    if (isAuthenticated || storedToken) {
       setIsReady(true);
     } else {
-      const storedToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-      if (!storedToken) {
-        router.push('/');
-        setIsReady(false);
-      } else {
-        setIsReady(true);
-      }
+      router.push('/');
+      setIsReady(false);
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, token, router]);
 
-  return { isReady };
+  return isReady;
 }
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {

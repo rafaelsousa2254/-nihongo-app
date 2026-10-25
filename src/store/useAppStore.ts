@@ -70,8 +70,20 @@ const createAuthSlice: StateCreator<AppStore, [], [], AuthSlice> = (set) => ({
   user: null,
   token: null,
   isAuthenticated: false,
-  login: (user, token) => set({ user, token, isAuthenticated: true }),
-  logout: () => set({ user: null, token: null, isAuthenticated: false }),
+  login: (user, token) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('token', token)
+      localStorage.setItem('user', JSON.stringify(user))
+    }
+    set({ user, token, isAuthenticated: true })
+  },
+  logout: () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token')
+      localStorage.removeItem('user')
+    }
+    set({ user: null, token: null, isAuthenticated: false })
+  },
   setUser: (user) => set({ user }),
 })
 
